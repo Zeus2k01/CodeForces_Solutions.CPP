@@ -1,27 +1,36 @@
 #include<iostream>
-#include<string>
+#include<cmath>
+#include<algorithm>
+#include<array>
 using namespace std;
 int main()
 {
-	string s;
-	cin >> s;
-	int len = s.length();
-	for (int i = 0; i < len; i++)
+	int n;
+	cin >> n;
+	int a[100000], b[100000], c[100000], d[100000];
+	for (int i = 0; i < n; i++)
 	{
-	
-		if (s[i] != 'A' && s[i] != 'a' && s[i] != 'E' && s[i] != 'e' && s[i] != 'I' && s[i] != 'i'
-			&& s[i] != 'O' && s[i] != 'o' && s[i] != 'U' && s[i] != 'u'&&s[i]!='Y'&&s[i]!='y')
-		{
-			if (isupper(s[i]))
-			{	
-				char lower = tolower(s[i]);
-				//putchar(tolower(s[i]));
-				cout << "." << static_cast<char> (tolower(s[i]));
-			}
-			else
-				cout << "." << s[i];
-		}
-	}
+		cin >> a[i] >> b[i];
 
+	}
+	for (int i = 0; i < n; i++)
+	{
+		int diff = abs(a[i] - b[i]);
+		if (diff > 1)
+		{
+			c[i] = diff;
+		}
+		else
+			d[i] = diff;
+	}
+	int e = *max_element(c, c + c.size());
+	int f = *max_element(d, d + d.size());
+	if (e > f)
+	{
+		cout << "1" << e;
+	}
+	else
+		cout << "2" << f;
 	return 0;
+
 }

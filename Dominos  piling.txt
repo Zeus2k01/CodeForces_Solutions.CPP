@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int m,n;
+    cin>>m>>n;
+    int pro=m*n;
+    int x=pro/2;
+    cout<<x;
+    return 0;
+}
